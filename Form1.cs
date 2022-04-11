@@ -47,7 +47,7 @@ namespace Praktikum_AD_Week_8__Hasil_Pertandingan_
         private void cbBoxLeft_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable managerAndCaptainLeft = new DataTable();
-            sqlQuery = "select m.manager_name as `Manager Name`, p.player_name as `Captain` from manager m, player p, team t where m.manager_id = t.team_id and t.captain_id = p.player_id and t.team_id = '" + cbBoxLeft.SelectedValue.ToString() + "'";
+            sqlQuery = "select m.manager_name as `Manager Name`, p.player_name as `Captain` from manager m, player p, team t where m.manager_id = t.manager_id and t.captain_id = p.player_id and t.team_id = '" + cbBoxLeft.SelectedValue.ToString() + "'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(managerAndCaptainLeft);
@@ -58,7 +58,7 @@ namespace Praktikum_AD_Week_8__Hasil_Pertandingan_
         private void cbBoxRight_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable managerAndCaptainRight = new DataTable();
-            sqlQuery = "select m.manager_name as `Manager Name`, p.player_name as `Captain` from manager m, player p, team t where m.manager_id = t.team_id and t.captain_id = p.player_id and t.team_id = '" + cbBoxRight.SelectedValue.ToString() + "'";
+            sqlQuery = "select m.manager_name as `Manager Name`, p.player_name as `Captain` from manager m, player p, team t where m.manager_id = t.manager_id and t.captain_id = p.player_id and t.team_id = '" + cbBoxRight.SelectedValue.ToString() + "'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(managerAndCaptainRight);
