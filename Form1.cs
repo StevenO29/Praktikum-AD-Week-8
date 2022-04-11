@@ -65,7 +65,7 @@ namespace Praktikum_AD_Week_8__Hasil_Pertandingan_
             lblOutputManagerRight.Text = managerAndCaptainRight.Rows[0]["Manager Name"].ToString();
             lblOutputCaptainRight.Text = managerAndCaptainRight.Rows[0]["Captain"].ToString();
             DataTable stadiumCapacity = new DataTable();
-            sqlQuery = "select t.home_stadium as `Stadium`, t.capacity as `Capacity` from team t where team_id = '" + cbBoxRight.SelectedValue.ToString() + "'";
+            sqlQuery = "select concat(t.home_stadium, ', ', t.city) as `Stadium`, t.capacity as `Capacity` from team t where team_id = '" + cbBoxLeft.SelectedValue.ToString() + "'";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(stadiumCapacity);
